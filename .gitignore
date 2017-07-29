@@ -3,3 +3,4 @@ build/
 *.zip
 *.css
 .DS_Store
+*.css

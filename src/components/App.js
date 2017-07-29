@@ -5,6 +5,7 @@ import Inventory from './Inventory';
 import Fish from './Fish';
 import sampleFishes from '../sample-fishes';
 import base from '../base';
+import { toggleFold } from '../helpers';
 
 class App extends React.Component {
 
@@ -95,12 +96,13 @@ class App extends React.Component {
 		return (
 			<div className="catch-of-the-day">
                 <div className="menu">
+                    <span id="fold" className="folded" onClick={toggleFold}>Fold</span>
                     <Header tagline="Fresh Seafood Market"/>
                     <ul className="list-of-fishes">
                       {
                       	Object
                       	  .keys(this.state.fishes)
-                      	  .map(key => <Fish key={key} 
+                      	  .map(key => <Fish key={key}
                       	  	                index={key}
                       	  	                details={this.state.fishes[key]}
                       	  	                addToOrder={this.addToOrder} />)
@@ -117,10 +119,15 @@ class App extends React.Component {
                            fishes={this.state.fishes}
                            updateFish={this.updateFish}
                            removeFish={this.removeFish}
+                           storeId={this.props.params.storeId}
                 />
 			</div>
 		)
 	}
+}
+
+App.propTypes = {
+	params: React.PropTypes.object.isRequired
 }
 
 export default App;

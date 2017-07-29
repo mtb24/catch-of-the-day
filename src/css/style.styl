@@ -50,6 +50,15 @@ header.top
       top auto
       bottom 7px
 
+.catch-of-the-day.unfold
+  & > *
+  transform none
+    &:first-child
+      transform none
+    &:nth-child(2)
+      transform none
+    &:last-child
+      transform none
 
 .catch-of-the-day
   display flex
@@ -84,14 +93,11 @@ header.top
 
 // Folding Transforms
 // Take off folding when not checked
-input#fold:not(:checked) ~ #main
-  .catch-of-the-day > *
-      transform none
-
-label[for="fold"]
+span#fold
   position absolute
-  top 1rem
-  left 1rem
+  top 0
+  left 0
+  //transform rotate(-90deg)
   text-transform uppercase
   font-size 1.3rem
   background black
@@ -99,12 +105,9 @@ label[for="fold"]
   border 2px solid black
   cursor pointer
   padding 0.5rem 1rem
-
-input#fold
-  display none
-  &:checked + label
-    background white
-    color black
+  &.folded
+    top 1px
+    left 26px
 
 ul
   list-style none
@@ -256,7 +259,7 @@ button, input[type=submit]
     &:after
       background green
 
-  &.github, &.facebook, &.twitter
+  &.github, &.facebook, &.twitter, &.google
     border 0
     display block
     margin-bottom 2rem
@@ -279,6 +282,11 @@ button, input[type=submit]
     &:after
       background darken(#5EA9DD, 20%)
 
+  &.google
+    background #356DF0
+    &:after
+      background darken(#356DF0, 20%)
+
 
 // Store Selector
 .store-selector
@@ -292,3 +300,7 @@ button, input[type=submit]
     &[type="text"]
       text-align center
       font-size 3rem
+
+// Inventory
+nav.login
+  text-align center
