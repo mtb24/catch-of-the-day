@@ -5,6 +5,7 @@ import Inventory from './Inventory';
 import Fish from './Fish';
 import sampleFishes from '../sample-fishes';
 import base from '../base';
+import { toggleFold } from '../helpers';
 
 class App extends React.Component {
 
@@ -95,6 +96,7 @@ class App extends React.Component {
 		return (
 			<div className="catch-of-the-day">
                 <div className="menu">
+                    <span id="fold" className="folded" onClick={toggleFold}>Fold</span>
                     <Header tagline="Fresh Seafood Market"/>
                     <ul className="list-of-fishes">
                       {

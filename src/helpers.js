@@ -22,3 +22,8 @@ export function getFunName() {
 
   return `${rando(adjectives)}-${rando(adjectives)}-${rando(nouns)}`;
 }
+
+export function toggleFold(e) {
+  document.querySelector('.catch-of-the-day').classList.toggle('unfold');
+  document.querySelector('#fold').classList.toggle('folded');
+}
